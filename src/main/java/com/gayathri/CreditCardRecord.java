@@ -6,15 +6,15 @@ public class CreditCardRecord {
     private String nameOfCardholder;
 
     public String getCardNumber() {
-        return cardNumber.trim();
+        return cardNumber;
     }
 
     public String getExpirationDate() {
-        return expirationDate.trim();
+        return expirationDate;
     }
 
     public String getNameOfCardholder() {
-        return nameOfCardholder.trim();
+        return nameOfCardholder;
     }
 
     public void setCardNumber(String cardNumber) {

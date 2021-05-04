@@ -16,7 +16,7 @@ public class CreditCard {
         CsvMapper csvMapper = new CsvMapper();
         csvMapper.setPropertyNamingStrategy(PropertyNamingStrategy.UPPER_CAMEL_CASE);
 
-        CsvSchema schema = CsvSchema.emptySchema().withHeader().withColumnSeparator('\t');
+        CsvSchema schema = CsvSchema.emptySchema().withHeader();
         ObjectReader oReader = csvMapper.reader(CreditCardRecord.class).with(schema);
         List<CreditCardRecord> records = new ArrayList<>();
         ClassLoader classLoader = CreditCard.class.getClassLoader();
