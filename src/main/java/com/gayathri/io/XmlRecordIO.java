@@ -17,7 +17,7 @@ public class XmlRecordIO extends RecordIO {
 
     @Override
     public boolean write(String filename, List<OutputRecord> records) {
-        File file = new File("output.xml");
+        File file = new File(filename);
         ObjectMapper xmlMapper = getObjectMapper();
         try {
             xmlMapper.writeValue(file, records);

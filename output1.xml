@@ -1,0 +1,27 @@
+<ArrayList>
+  <item>
+    <CardNumber>5410000000000000</CardNumber>
+    <CardType>MasterCard</CardType>
+    <ErrorMessage/>
+  </item>
+  <item>
+    <CardNumber>4120000000000</CardNumber>
+    <CardType>Visa</CardType>
+    <ErrorMessage/>
+  </item>
+  <item>
+    <CardNumber>341000000000000</CardNumber>
+    <CardType>AmericanExpress</CardType>
+    <ErrorMessage/>
+  </item>
+  <item>
+    <CardNumber>6011000000000000</CardNumber>
+    <CardType>Discover</CardType>
+    <ErrorMessage/>
+  </item>
+  <item>
+    <CardNumber>123</CardNumber>
+    <CardType/>
+    <ErrorMessage>Unsupported Card Type</ErrorMessage>
+  </item>
+</ArrayList>

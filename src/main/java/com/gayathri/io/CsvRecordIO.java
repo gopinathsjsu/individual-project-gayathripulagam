@@ -22,8 +22,13 @@ public class CsvRecordIO extends RecordIO {
 
     @Override
     public boolean write(String filename, List<OutputRecord> records) {
-        File file = new File("output.csv");
-        CsvSchema schema = CsvSchema.builder().addColumn("CardNumber").addColumn("CardType").build().withHeader();
+        File file = new File(filename);
+        CsvSchema schema = CsvSchema.builder()
+                .addColumn("CardNumber")
+                .addColumn("CardType")
+                .addColumn("ErrorMessage")
+                .build()
+                .withHeader();
         try {
             ObjectWriter writer = getObjectMapper().writer(schema);
             writer.writeValue(file, records);
