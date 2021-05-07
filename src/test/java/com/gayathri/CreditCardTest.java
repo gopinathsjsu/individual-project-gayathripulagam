@@ -2,21 +2,10 @@ package com.gayathri;
 
 import org.junit.Test;
 
-import java.util.List;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.assertTrue;
 
 public class CreditCardTest {
-
-    @Test
-    public void test_readFromCsv() {
-        CreditCard cc = new CreditCard();
-        List<CreditCardRecord> records = cc.readFromCsv("input.csv");
-        CreditCardRecord firstRecord = records.get(0);
-        assertEquals("5410000000000000", firstRecord.getCardNumber());
-        assertEquals("3/20/2030", firstRecord.getExpirationDate());
-        assertEquals("Alice", firstRecord.getNameOfCardholder());
-    }
 
     @Test
     public void test_CreditCardFactory_DiscoverCard() {
