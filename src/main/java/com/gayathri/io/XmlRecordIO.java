@@ -1,30 +1,41 @@
 package com.gayathri.io;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectReader;
-import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import com.gayathri.CreditCardRecord;
+import com.gayathri.record.InputRecord;
+import com.gayathri.record.OutputRecord;
 
+import java.io.*;
 import java.util.List;
 
 public class XmlRecordIO extends RecordIO {
 
     @Override
-    public List<CreditCardRecord> read(String filename) {
-        ObjectReader reader = getObjectReader();
-        return readHelper(reader, filename);
+    public List<InputRecord> read(String filename) {
+        return readHelper(getObjectReader(), filename);
     }
 
     @Override
-    public void write() {
-
+    public boolean write(String filename, List<OutputRecord> records) {
+        File file = new File("output.xml");
+        ObjectMapper xmlMapper = getObjectMapper();
+        try {
+            xmlMapper.writeValue(file, records);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
     }
 
-    @Override
-    protected ObjectReader getObjectReader() {
+    private ObjectMapper getObjectMapper() {
         ObjectMapper mapper = new XmlMapper();
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
         mapper.setPropertyNamingStrategy(PropertyNamingStrategy.UPPER_CAMEL_CASE);
-        return mapper.readerFor(CreditCardRecord.class);
+        return mapper;
+    }
+
+    private ObjectReader getObjectReader() {
+        return getObjectMapper().readerFor(InputRecord.class);
     }
 }

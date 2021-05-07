@@ -1,9 +1,13 @@
 package com.gayathri.io;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.MappingIterator;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
+import com.fasterxml.jackson.databind.ObjectWriter;
 import com.gayathri.CreditCard;
-import com.gayathri.CreditCardRecord;
+import com.gayathri.record.InputRecord;
+import com.gayathri.record.OutputRecord;
 
 import java.io.File;
 import java.io.FileReader;
@@ -13,18 +17,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class RecordIO {
-    abstract public List<CreditCardRecord> read(String filename);
+    abstract public List<InputRecord> read(String filename);
 
-    abstract public void write();
+    abstract public boolean write(String filename, List<OutputRecord> records);
 
-    protected List<CreditCardRecord> readHelper(ObjectReader objectReader, String filename) {
-        List<CreditCardRecord> records = new ArrayList<>();
+    protected List<InputRecord> readHelper(ObjectReader objectReader, String filename) {
+        List<InputRecord> records = new ArrayList<>();
         ClassLoader classLoader = CreditCard.class.getClassLoader();
         File file = new File(classLoader.getResource(filename).getFile());
         try (Reader reader = new FileReader(file)) {
-            MappingIterator<CreditCardRecord> mi = objectReader.readValues(reader);
+            MappingIterator<InputRecord> mi = objectReader.readValues(reader);
             while (mi.hasNext()) {
-                CreditCardRecord current = mi.next();
+                InputRecord current = mi.next();
                 records.add(current);
             }
         } catch (IOException e) {
@@ -32,6 +36,4 @@ public abstract class RecordIO {
         }
         return records;
     }
-
-    abstract protected ObjectReader getObjectReader();
 }
