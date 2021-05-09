@@ -1,6 +1,6 @@
-package com.gayathri.record;
+package com.gayathri;
 
-public class InputRecord {
+public class CreditCard {
     private String cardNumber;
     private String expirationDate;
     private String nameOfCardholder;

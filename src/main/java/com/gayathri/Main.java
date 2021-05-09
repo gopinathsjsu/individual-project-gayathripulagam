@@ -2,8 +2,6 @@ package com.gayathri;
 
 import com.gayathri.io.RecordIO;
 import com.gayathri.io.RecordIOFactory;
-import com.gayathri.record.InputRecord;
-import com.gayathri.record.OutputRecord;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,7 +15,7 @@ public class Main {
         String inputFilename = args[0];
         String outputFilename = args[1];
         RecordIO io = new RecordIOFactory().getRecordIO(inputFilename);
-        List<InputRecord> creditCardList = io.read(inputFilename);
+        List<CreditCard> creditCardList = io.read(inputFilename);
         List<OutputRecord> output = creditCardList
                 .stream()
                 .map(record -> {

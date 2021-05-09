@@ -1,10 +1,9 @@
 package com.gayathri.io;
 
-import com.gayathri.record.InputRecord;
-import com.gayathri.record.OutputRecord;
+import com.gayathri.CreditCard;
+import com.gayathri.OutputRecord;
 import org.junit.Test;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,8 +15,8 @@ public class RecordIOTest {
     public void test_readFromCsv() {
         String filename = "input.csv";
         RecordIO recordIO = new RecordIOFactory().getRecordIO(filename);
-        List<InputRecord> records = recordIO.read(filename);
-        InputRecord firstRecord = records.get(0);
+        List<CreditCard> records = recordIO.read(filename);
+        CreditCard firstRecord = records.get(0);
         assertEquals("5410000000000000", firstRecord.getCardNumber());
         assertEquals("3/20/2030", firstRecord.getExpirationDate());
         assertEquals("Alice", firstRecord.getNameOfCardholder());
@@ -27,8 +26,8 @@ public class RecordIOTest {
     public void test_readFromXml() {
         String filename = "input.xml";
         RecordIO recordIO = new RecordIOFactory().getRecordIO(filename);
-        List<InputRecord> records = recordIO.read(filename);
-        InputRecord firstRecord = records.get(0);
+        List<CreditCard> records = recordIO.read(filename);
+        CreditCard firstRecord = records.get(0);
         assertEquals("5410000000000000", firstRecord.getCardNumber());
         assertEquals("3/20/2030", firstRecord.getExpirationDate());
         assertEquals("Alice", firstRecord.getNameOfCardholder());
@@ -38,8 +37,8 @@ public class RecordIOTest {
     public void test_readFromJson() {
         String filename = "input.json";
         RecordIO recordIO = new RecordIOFactory().getRecordIO(filename);
-        List<InputRecord> records = recordIO.read(filename);
-        InputRecord firstRecord = records.get(0);
+        List<CreditCard> records = recordIO.read(filename);
+        CreditCard firstRecord = records.get(0);
         assertEquals("5410000000000000", firstRecord.getCardNumber());
         assertEquals("3/20/2030", firstRecord.getExpirationDate());
         assertEquals("Alice", firstRecord.getNameOfCardholder());

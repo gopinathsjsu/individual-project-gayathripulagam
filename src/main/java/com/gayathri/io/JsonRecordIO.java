@@ -4,8 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.json.JsonMapper;
-import com.gayathri.record.InputRecord;
-import com.gayathri.record.OutputRecord;
+import com.gayathri.CreditCard;
+import com.gayathri.OutputRecord;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,7 +14,7 @@ import java.util.List;
 public class JsonRecordIO extends RecordIO {
 
     @Override
-    public List<InputRecord> read(String filename) {
+    public List<CreditCard> read(String filename) {
         ObjectReader reader = getObjectReader();
         return readHelper(reader, filename);
     }
@@ -32,7 +32,7 @@ public class JsonRecordIO extends RecordIO {
     }
 
     private ObjectReader getObjectReader() {
-        return getObjectMapper().readerFor(InputRecord.class);
+        return getObjectMapper().readerFor(CreditCard.class);
     }
 
     private ObjectMapper getObjectMapper() {

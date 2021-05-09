@@ -2,8 +2,8 @@ package com.gayathri.io;
 
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import com.gayathri.record.InputRecord;
-import com.gayathri.record.OutputRecord;
+import com.gayathri.CreditCard;
+import com.gayathri.OutputRecord;
 
 import java.io.*;
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.List;
 public class XmlRecordIO extends RecordIO {
 
     @Override
-    public List<InputRecord> read(String filename) {
+    public List<CreditCard> read(String filename) {
         return readHelper(getObjectReader(), filename);
     }
 
@@ -36,6 +36,6 @@ public class XmlRecordIO extends RecordIO {
     }
 
     private ObjectReader getObjectReader() {
-        return getObjectMapper().readerFor(InputRecord.class);
+        return getObjectMapper().readerFor(CreditCard.class);
     }
 }

@@ -1,4 +1,4 @@
-package com.gayathri.record;
+package com.gayathri;
 
 public class OutputRecord {
 

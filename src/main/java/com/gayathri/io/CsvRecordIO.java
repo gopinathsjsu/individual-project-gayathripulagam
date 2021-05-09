@@ -6,8 +6,8 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
-import com.gayathri.record.InputRecord;
-import com.gayathri.record.OutputRecord;
+import com.gayathri.CreditCard;
+import com.gayathri.OutputRecord;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,7 +16,7 @@ import java.util.List;
 public class CsvRecordIO extends RecordIO {
 
     @Override
-    public List<InputRecord> read(String filename) {
+    public List<CreditCard> read(String filename) {
         return readHelper(getObjectReader(), filename);
     }
 
@@ -42,7 +42,7 @@ public class CsvRecordIO extends RecordIO {
     private ObjectReader getObjectReader() {
         ObjectMapper mapper = getObjectMapper();
         CsvSchema schema = CsvSchema.emptySchema().withHeader();
-        return mapper.readerFor(InputRecord.class).with(schema);
+        return mapper.readerFor(CreditCard.class).with(schema);
     }
 
     private ObjectMapper getObjectMapper() {
