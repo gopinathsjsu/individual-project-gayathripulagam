@@ -3,6 +3,7 @@ package com.gayathri.io;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.gayathri.CreditCard;
 import com.gayathri.OutputRecord;
@@ -38,6 +39,7 @@ public class JsonRecordIO extends RecordIO {
     private ObjectMapper getObjectMapper() {
         ObjectMapper mapper = new JsonMapper();
         mapper.setPropertyNamingStrategy(PropertyNamingStrategy.UPPER_CAMEL_CASE);
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
         return mapper;
     }
 }
