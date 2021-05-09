@@ -1,10 +1,8 @@
 package com.gayathri.io;
 
-import com.gayathri.CreditCard;
-import com.gayathri.OutputRecord;
+import com.gayathri.cc.CreditCard;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;

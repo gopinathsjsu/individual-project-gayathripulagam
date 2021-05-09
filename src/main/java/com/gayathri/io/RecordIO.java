@@ -1,6 +1,6 @@
 package com.gayathri.io;
 
-import com.gayathri.CreditCard;
+import com.gayathri.cc.CreditCard;
 
 import java.util.List;
 

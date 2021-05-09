@@ -1,4 +1,4 @@
-package com.gayathri;
+package com.gayathri.cc;
 
 public class MasterCC extends CreditCard {
 

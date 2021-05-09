@@ -6,9 +6,9 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
-import com.gayathri.CreditCard;
-import com.gayathri.CreditCardFactory;
-import com.gayathri.OutputRecord;
+import com.gayathri.cc.CreditCard;
+import com.gayathri.cc.CreditCardFactory;
+import com.gayathri.cc.OutputRecord;
 
 import java.io.File;
 import java.io.FileReader;

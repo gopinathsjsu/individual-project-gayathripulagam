@@ -5,9 +5,9 @@ import com.fasterxml.jackson.databind.ObjectReader;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.json.JsonMapper;
-import com.gayathri.CreditCard;
-import com.gayathri.CreditCardFactory;
-import com.gayathri.OutputRecord;
+import com.gayathri.cc.CreditCard;
+import com.gayathri.cc.CreditCardFactory;
+import com.gayathri.cc.OutputRecord;
 
 import java.io.File;
 import java.io.FileReader;

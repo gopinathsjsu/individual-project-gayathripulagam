@@ -1,4 +1,4 @@
-package com.gayathri;
+package com.gayathri.cc;
 
 import org.junit.Test;
 

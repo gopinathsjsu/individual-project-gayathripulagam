@@ -1,5 +1,6 @@
 package com.gayathri;
 
+import com.gayathri.cc.CreditCard;
 import com.gayathri.io.RecordIO;
 import com.gayathri.io.RecordIOFactory;
 
