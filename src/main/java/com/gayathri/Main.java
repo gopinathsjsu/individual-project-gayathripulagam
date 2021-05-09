@@ -12,6 +12,8 @@ public class Main {
             System.err.println("Invalid syntax. Usage: java Main <input filename> <output filename>");
             System.exit(1);
         }
+
+        String errorMessage = "Unsupported Card Type";
         String inputFilename = args[0];
         String outputFilename = args[1];
         RecordIO io = new RecordIOFactory().getRecordIO(inputFilename);
@@ -20,15 +22,12 @@ public class Main {
                 .stream()
                 .map(record -> {
                     String cardNumber = record.getCardNumber();
-                    String errorMessage = null;
                     try {
                         return new OutputRecord(
                                 cardNumber,
                                 new CreditCardFactory().getCreditCard(cardNumber).toString(),
                                 errorMessage);
                     } catch (UnsupportedOperationException e) {
-                        e.printStackTrace();
-                        errorMessage = "Unsupported Card Type";
                         return new OutputRecord(
                                 cardNumber,
                                 null,

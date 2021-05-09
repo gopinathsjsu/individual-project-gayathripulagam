@@ -46,7 +46,7 @@ public class RecordIOTest {
 
     @Test
     public void test_writeXML() {
-        String filename = "output.xml";
+        String filename = "test_output.xml";
         RecordIO recordIO = new RecordIOFactory().getRecordIO(filename);
         List<OutputRecord> records = new ArrayList<>();
         records.add(new OutputRecord("123", "MasterCard", null));
@@ -56,7 +56,7 @@ public class RecordIOTest {
 
     @Test
     public void test_writeJSON() {
-        String filename = "output.json";
+        String filename = "test_output.json";
         RecordIO recordIO = new RecordIOFactory().getRecordIO(filename);
         List<OutputRecord> records = new ArrayList<>();
         records.add(new OutputRecord("123", "MasterCard", null));
@@ -66,7 +66,7 @@ public class RecordIOTest {
 
     @Test
     public void test_writeCSV() {
-        String filename = "output.csv";
+        String filename = "test_output.csv";
         RecordIO recordIO = new RecordIOFactory().getRecordIO(filename);
         List<OutputRecord> records = new ArrayList<>();
         records.add(new OutputRecord("123", "MasterCard", null));
