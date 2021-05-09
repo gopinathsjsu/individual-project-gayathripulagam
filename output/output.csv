@@ -1,6 +1,6 @@
 CardNumber,CardType,ErrorMessage
-5410000000000000,MasterCard,"Unsupported Card Type"
-4120000000000,Visa,"Unsupported Card Type"
-341000000000000,AmericanExpress,"Unsupported Card Type"
-6011000000000000,Discover,"Unsupported Card Type"
+5410000000000000,MasterCard,
+4120000000000,Visa,
+341000000000000,AmericanExpress,
+6011000000000000,Discover,
 123,,"Unsupported Card Type"
