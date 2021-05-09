@@ -1,0 +1,12 @@
+<ArrayList>
+  <item>
+    <CardNumber>123</CardNumber>
+    <CardType>MasterCard</CardType>
+    <ErrorMessage/>
+  </item>
+  <item>
+    <CardNumber>456</CardNumber>
+    <CardType>Discover</CardType>
+    <ErrorMessage/>
+  </item>
+</ArrayList>

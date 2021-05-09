@@ -1,0 +1,9 @@
+[ {
+  "CardNumber" : "123",
+  "CardType" : "MasterCard",
+  "ErrorMessage" : null
+}, {
+  "CardNumber" : "456",
+  "CardType" : "Discover",
+  "ErrorMessage" : null
+} ]
