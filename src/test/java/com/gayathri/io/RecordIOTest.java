@@ -13,7 +13,7 @@ public class RecordIOTest {
 
     @Test
     public void test_readFromCsv() {
-        String filename = "input.csv";
+        String filename = "src/main/resources/input.csv";
         RecordIO recordIO = new RecordIOFactory().getRecordIO(filename);
         List<CreditCard> records = recordIO.read(filename);
         CreditCard firstRecord = records.get(0);
@@ -24,7 +24,7 @@ public class RecordIOTest {
 
     @Test
     public void test_readFromXml() {
-        String filename = "input.xml";
+        String filename = "src/main/resources/input.xml";
         RecordIO recordIO = new RecordIOFactory().getRecordIO(filename);
         List<CreditCard> records = recordIO.read(filename);
         CreditCard firstRecord = records.get(0);
@@ -35,7 +35,7 @@ public class RecordIOTest {
 
     @Test
     public void test_readFromJson() {
-        String filename = "input.json";
+        String filename = "src/main/resources/input.json";
         RecordIO recordIO = new RecordIOFactory().getRecordIO(filename);
         List<CreditCard> records = recordIO.read(filename);
         CreditCard firstRecord = records.get(0);

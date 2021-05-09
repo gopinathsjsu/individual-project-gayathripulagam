@@ -19,8 +19,7 @@ public abstract class RecordIO {
 
     protected List<CreditCard> readHelper(ObjectReader objectReader, String filename) {
         List<CreditCard> records = new ArrayList<>();
-        ClassLoader classLoader = CreditCard.class.getClassLoader();
-        File file = new File(classLoader.getResource(filename).getFile());
+        File file = new File(filename);
         try (Reader reader = new FileReader(file)) {
             MappingIterator<CreditCard> mi = objectReader.readValues(reader);
             while (mi.hasNext()) {
