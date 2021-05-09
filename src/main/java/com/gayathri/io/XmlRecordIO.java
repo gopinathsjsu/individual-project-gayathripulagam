@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.gayathri.CreditCard;
+import com.gayathri.CreditCardFactory;
 import com.gayathri.OutputRecord;
 
 import java.io.File;
@@ -14,6 +15,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class XmlRecordIO implements RecordIO {
 
@@ -34,10 +36,11 @@ public class XmlRecordIO implements RecordIO {
     }
 
     @Override
-    public boolean write(String filename, List<OutputRecord> records) {
+    public boolean write(String filename, List<CreditCard> inputRecords) {
         File file = new File(filename);
+        List<OutputRecord> outputRecordList = getOutputRecords(inputRecords);
         try {
-            getXmlMapper().writeValue(file, records);
+            getXmlMapper().writeValue(file, outputRecordList);
         } catch (IOException e) {
             e.printStackTrace();
             return false;
@@ -54,5 +57,26 @@ public class XmlRecordIO implements RecordIO {
 
     private ObjectReader getXmlReader() {
         return getXmlMapper().readerFor(CreditCard.class);
+    }
+
+    private List<OutputRecord> getOutputRecords(List<CreditCard> creditCards) {
+        return creditCards
+                .stream()
+                .map(record -> {
+                    String cardNumber = record.getCardNumber();
+                    try {
+                        return new OutputRecord(
+                                cardNumber,
+                                new CreditCardFactory().getCreditCard(cardNumber).toString(),
+                                null);
+                    } catch (UnsupportedOperationException e) {
+                        return new OutputRecord(
+                                cardNumber,
+                                null,
+                                "Unsupported Card Type"
+                        );
+                    }
+                })
+                .collect(Collectors.toList());
     }
 }

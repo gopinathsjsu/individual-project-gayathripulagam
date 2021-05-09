@@ -43,34 +43,4 @@ public class RecordIOTest {
         assertEquals("3/20/2030", firstRecord.getExpirationDate());
         assertEquals("Alice", firstRecord.getNameOfCardholder());
     }
-
-    @Test
-    public void test_writeXML() {
-        String filename = "test_output/test_output.xml";
-        RecordIO recordIO = new RecordIOFactory().getRecordIO(filename);
-        List<OutputRecord> records = new ArrayList<>();
-        records.add(new OutputRecord("123", "MasterCard", null));
-        records.add(new OutputRecord("456", "Discover", null));
-        recordIO.write(filename, records);
-    }
-
-    @Test
-    public void test_writeJSON() {
-        String filename = "test_output/test_output.json";
-        RecordIO recordIO = new RecordIOFactory().getRecordIO(filename);
-        List<OutputRecord> records = new ArrayList<>();
-        records.add(new OutputRecord("123", "MasterCard", null));
-        records.add(new OutputRecord("456", "Discover", null));
-        recordIO.write(filename, records);
-    }
-
-    @Test
-    public void test_writeCSV() {
-        String filename = "test_output/test_output.csv";
-        RecordIO recordIO = new RecordIOFactory().getRecordIO(filename);
-        List<OutputRecord> records = new ArrayList<>();
-        records.add(new OutputRecord("123", "MasterCard", null));
-        records.add(new OutputRecord("456", "Discover", null));
-        recordIO.write(filename, records);
-    }
 }

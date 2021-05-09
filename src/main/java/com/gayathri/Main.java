@@ -4,7 +4,6 @@ import com.gayathri.io.RecordIO;
 import com.gayathri.io.RecordIOFactory;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,31 +12,12 @@ public class Main {
             System.exit(1);
         }
 
-        String errorMessage = "Unsupported Card Type";
         String inputFilename = args[0];
         String outputFilename = args[1];
         Utils.validatePaths(inputFilename, outputFilename);
         RecordIO io = new RecordIOFactory().getRecordIO(inputFilename);
-        List<CreditCard> creditCardList = io.read(inputFilename);
-        List<OutputRecord> output = creditCardList
-                .stream()
-                .map(record -> {
-                    String cardNumber = record.getCardNumber();
-                    try {
-                        return new OutputRecord(
-                                cardNumber,
-                                new CreditCardFactory().getCreditCard(cardNumber).toString(),
-                                errorMessage);
-                    } catch (UnsupportedOperationException e) {
-                        return new OutputRecord(
-                                cardNumber,
-                                null,
-                                errorMessage
-                        );
-                    }
-                })
-                .collect(Collectors.toList());
-        boolean writeSuccess = io.write(outputFilename, output);
+        List<CreditCard> creditCards = io.read(inputFilename);
+        boolean writeSuccess = io.write(outputFilename, creditCards);
         if (writeSuccess) {
             System.out.println("Output successfully written to " + outputFilename);
         } else {
