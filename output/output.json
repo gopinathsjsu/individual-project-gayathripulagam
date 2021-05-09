@@ -1,0 +1,21 @@
+[ {
+  "CardNumber" : "5410000000000000",
+  "CardType" : "MasterCard",
+  "ErrorMessage" : null
+}, {
+  "CardNumber" : "4120000000000",
+  "CardType" : "Visa",
+  "ErrorMessage" : null
+}, {
+  "CardNumber" : "341000000000000",
+  "CardType" : "AmericanExpress",
+  "ErrorMessage" : null
+}, {
+  "CardNumber" : "6011000000000000",
+  "CardType" : "Discover",
+  "ErrorMessage" : null
+}, {
+  "CardNumber" : "123",
+  "CardType" : null,
+  "ErrorMessage" : "Unsupported Card Type"
+} ]
