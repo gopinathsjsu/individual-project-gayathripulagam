@@ -16,6 +16,7 @@ public class Main {
         String errorMessage = "Unsupported Card Type";
         String inputFilename = args[0];
         String outputFilename = args[1];
+        Utils.validatePaths(inputFilename, outputFilename);
         RecordIO io = new RecordIOFactory().getRecordIO(inputFilename);
         List<CreditCard> creditCardList = io.read(inputFilename);
         List<OutputRecord> output = creditCardList
@@ -42,9 +43,5 @@ public class Main {
         } else {
             System.out.println("Failed to write output");
         }
-    }
-
-    private void validatePaths(String input, String output) {
-
     }
 }
