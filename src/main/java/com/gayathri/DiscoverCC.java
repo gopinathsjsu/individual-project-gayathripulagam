@@ -6,4 +6,9 @@ public class DiscoverCC extends CreditCard {
     public String toString() {
         return "Discover";
     }
+
+    public static boolean isValid(String cardNumber) {
+        return cardNumber.length() == 16 &&
+                cardNumber.startsWith("6011");
+    }
 }

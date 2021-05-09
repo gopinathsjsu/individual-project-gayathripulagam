@@ -2,13 +2,13 @@ package com.gayathri;
 
 public class CreditCardFactory {
     public CreditCard getCreditCard(String cardNumber) {
-        if (cardNumber.length() == 16 && cardNumber.charAt(0) == '5' && cardNumber.charAt(1) >= '1' && cardNumber.charAt(1) <= '5') {
+        if (MasterCC.isValid(cardNumber)) {
             return new MasterCC();
-        } else if (cardNumber.length() == 13 || cardNumber.length() == 16 && cardNumber.charAt(0) == '4') {
+        } else if (VisaCC.isValid(cardNumber)) {
             return new VisaCC();
-        } else if (cardNumber.length() == 15 && cardNumber.charAt(0) == '3' && (cardNumber.charAt(1) == '4' || cardNumber.charAt(1) == '7')) {
+        } else if (AmExCC.isValid(cardNumber)) {
             return new AmExCC();
-        } else if (cardNumber.length() == 16 && cardNumber.startsWith("6011")) {
+        } else if (DiscoverCC.isValid(cardNumber)) {
             return new DiscoverCC();
         } else {
             throw new UnsupportedOperationException();
